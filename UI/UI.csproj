@@ -1,0 +1,495 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{3BF9B814-5643-45AF-852A-C6F681B239ED}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UI</RootNamespace>
+    <AssemblyName>АРМ Кассир</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>UI.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Cashier2.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup />
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.3.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstractions\IEntityEditor.cs" />
+    <Compile Include="FormCheck.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCheck.Designer.cs">
+      <DependentUpon>FormCheck.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAdminWorkspace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdminWorkspace.Designer.cs">
+      <DependentUpon>FormAdminWorkspace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormAuthorization.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAuthorization.Designer.cs">
+      <DependentUpon>FormAuthorization.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCashBoxEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCashBoxEdit.Designer.cs">
+      <DependentUpon>FormCashBoxEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormCategoryEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCategoryEdit.Designer.cs">
+      <DependentUpon>FormCategoryEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormChoise.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormChoise.Designer.cs">
+      <DependentUpon>FormChoise.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormGrid.Designer.cs">
+      <DependentUpon>FormGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormGridGeneric.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrganizationEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormOrganizationEdit.Designer.cs">
+      <DependentUpon>FormOrganizationEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormPaid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormPaid.Designer.cs">
+      <DependentUpon>FormPaid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormProductEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormProductEdit.Designer.cs">
+      <DependentUpon>FormProductEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSellerEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSellerEdit.Designer.cs">
+      <DependentUpon>FormSellerEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSellerWorkspace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSellerWorkspace.Designer.cs">
+      <DependentUpon>FormSellerWorkspace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormSession.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormSession.Designer.cs">
+      <DependentUpon>FormSession.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUnitsEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUnitsEdit.Designer.cs">
+      <DependentUpon>FormUnitsEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormUsersEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormUsersEdit.Designer.cs">
+      <DependentUpon>FormUsersEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="FormAdminPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormAdminPanel.Designer.cs">
+      <DependentUpon>FormAdminPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UIDelegates.cs" />
+    <Compile Include="UProductView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UProductView.Designer.cs">
+      <DependentUpon>UProductView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FormCheck.resx">
+      <DependentUpon>FormCheck.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAdminWorkspace.resx">
+      <DependentUpon>FormAdminWorkspace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormAuthorization.resx">
+      <DependentUpon>FormAuthorization.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCashBoxEdit.resx">
+      <DependentUpon>FormCashBoxEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormCategoryEdit.resx">
+      <DependentUpon>FormCategoryEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormChoise.resx">
+      <DependentUpon>FormChoise.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormGrid.resx">
+      <DependentUpon>FormGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormOrganizationEdit.resx">
+      <DependentUpon>FormOrganizationEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormPaid.resx">
+      <DependentUpon>FormPaid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormProductEdit.resx">
+      <DependentUpon>FormProductEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSellerEdit.resx">
+      <DependentUpon>FormSellerEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSellerWorkspace.resx">
+      <DependentUpon>FormSellerWorkspace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormSession.resx">
+      <DependentUpon>FormSession.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUnitsEdit.resx">
+      <DependentUpon>FormUnitsEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormUsersEdit.resx">
+      <DependentUpon>FormUsersEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="FormAdminPanel.resx">
+      <DependentUpon>FormAdminPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UProductView.resx">
+      <DependentUpon>UProductView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{682edaf3-33bd-4d5d-8101-369841fae2f9}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Models\Models.csproj">
+      <Project>{a285b67f-1d1e-4ebf-a754-1766e031a4d7}</Project>
+      <Name>Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\accept_button.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\pencil.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\page_white_paste.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\account_balances.png" />
+    <EmbeddedResource Include="Resources\account_functions.png" />
+    <EmbeddedResource Include="Resources\advanced_data_grid.png" />
+    <EmbeddedResource Include="Resources\diskette.png" />
+    <EmbeddedResource Include="Resources\color_wheel.png" />
+    <EmbeddedResource Include="Resources\error.png" />
+    <EmbeddedResource Include="Resources\folder.png" />
+    <EmbeddedResource Include="Resources\folder_add.png" />
+    <EmbeddedResource Include="Resources\folder_black.png" />
+    <EmbeddedResource Include="Resources\folder_blue.png" />
+    <EmbeddedResource Include="Resources\folder_brick.png" />
+    <EmbeddedResource Include="Resources\folder_delete.png" />
+    <EmbeddedResource Include="Resources\folder_edit.png" />
+    <EmbeddedResource Include="Resources\folder_error.png" />
+    <EmbeddedResource Include="Resources\folder_explorer.png" />
+    <EmbeddedResource Include="Resources\folder_find.png" />
+    <EmbeddedResource Include="Resources\multiplied_by_10.png" />
+    <EmbeddedResource Include="Resources\multiplied_by_100.png" />
+    <EmbeddedResource Include="Resources\multiplied_by_2.png" />
+    <EmbeddedResource Include="Resources\multiplied_by_3.png" />
+    <EmbeddedResource Include="Resources\multiplied_by_5.png" />
+    <EmbeddedResource Include="Resources\page_white_add.png" />
+    <EmbeddedResource Include="Resources\page_white_delete.png" />
+    <EmbeddedResource Include="Resources\pencil1.png" />
+    <EmbeddedResource Include="Resources\pint.png" />
+    <EmbeddedResource Include="Resources\plus.png" />
+    <EmbeddedResource Include="Resources\plus_button.png" />
+    <EmbeddedResource Include="Resources\plus_circle_frame.png" />
+    <EmbeddedResource Include="Resources\plus_light_blue.png" />
+    <EmbeddedResource Include="Resources\plus_octagon.png" />
+    <EmbeddedResource Include="Resources\plus_octagon_frame.png" />
+    <EmbeddedResource Include="Resources\points_small.png" />
+    <EmbeddedResource Include="Resources\point_gold.png" />
+    <EmbeddedResource Include="Resources\point_silver.png" />
+    <EmbeddedResource Include="Resources\point_small.png" />
+    <EmbeddedResource Include="Resources\raw_access_logs.png" />
+    <EmbeddedResource Include="Resources\receipt.png" />
+    <EmbeddedResource Include="Resources\receipt_invoice.png" />
+    <EmbeddedResource Include="Resources\receipt_stamp.png" />
+    <EmbeddedResource Include="Resources\regex_split.png" />
+    <EmbeddedResource Include="Resources\reports.png" />
+    <EmbeddedResource Include="Resources\report_add.png" />
+    <EmbeddedResource Include="Resources\report_delete.png" />
+    <EmbeddedResource Include="Resources\report_design.png" />
+    <EmbeddedResource Include="Resources\report_edit.png" />
+    <EmbeddedResource Include="Resources\report_go.png" />
+    <EmbeddedResource Include="Resources\report_green.png" />
+    <EmbeddedResource Include="Resources\report_save.png" />
+    <EmbeddedResource Include="Resources\report_stack.png" />
+    <EmbeddedResource Include="Resources\report_torn.png" />
+    <EmbeddedResource Include="Resources\report_user.png" />
+    <EmbeddedResource Include="Resources\research.png" />
+    <EmbeddedResource Include="Resources\reseller_account.png" />
+    <EmbeddedResource Include="Resources\reseller_account_template.png" />
+    <EmbeddedResource Include="Resources\reseller_programm.png" />
+    <EmbeddedResource Include="Resources\resultset_first.png" />
+    <EmbeddedResource Include="Resources\resultset_last.png" />
+    <EmbeddedResource Include="Resources\resultset_next.png" />
+    <EmbeddedResource Include="Resources\resultset_previous.png" />
+    <EmbeddedResource Include="Resources\richtext_editor.png" />
+    <EmbeddedResource Include="Resources\saved_exports.png" />
+    <EmbeddedResource Include="Resources\saved_imports.png" />
+    <EmbeddedResource Include="Resources\save_as.png" />
+    <EmbeddedResource Include="Resources\save_as_excel.png" />
+    <EmbeddedResource Include="Resources\save_as_excel_macro.png" />
+    <EmbeddedResource Include="Resources\save_close.png" />
+    <EmbeddedResource Include="Resources\save_data.png" />
+    <EmbeddedResource Include="Resources\save_money.png" />
+    <EmbeddedResource Include="Resources\save_new.png" />
+    <EmbeddedResource Include="Resources\split_panel.png" />
+    <EmbeddedResource Include="Resources\split_panel_vertical.png" />
+    <EmbeddedResource Include="Resources\sql_join_inner.png" />
+    <EmbeddedResource Include="Resources\sql_join_left.png" />
+    <EmbeddedResource Include="Resources\sql_join_left_exclude.png" />
+    <EmbeddedResource Include="Resources\sql_join_outer.png" />
+    <EmbeddedResource Include="Resources\sql_join_outer_exclude.png" />
+    <EmbeddedResource Include="Resources\sql_join_right.png" />
+    <EmbeddedResource Include="Resources\sql_join_right_exclude.png" />
+    <EmbeddedResource Include="Resources\sum.png" />
+    <EmbeddedResource Include="Resources\tag_blue.png" />
+    <EmbeddedResource Include="Resources\tag_blue_add.png" />
+    <EmbeddedResource Include="Resources\tag_blue_delete.png" />
+    <EmbeddedResource Include="Resources\tag_blue_edit.png" />
+    <EmbeddedResource Include="Resources\tag_green.png" />
+    <EmbeddedResource Include="Resources\tag_hash.png" />
+    <EmbeddedResource Include="Resources\tag_orange.png" />
+    <EmbeddedResource Include="Resources\tag_pink.png" />
+    <EmbeddedResource Include="Resources\tag_purple.png" />
+    <EmbeddedResource Include="Resources\tag_red.png" />
+    <EmbeddedResource Include="Resources\tag_yellow.png" />
+    <EmbeddedResource Include="Resources\temperature_cold.png" />
+    <EmbeddedResource Include="Resources\temperature_cool.png" />
+    <EmbeddedResource Include="Resources\temperature_hot.png" />
+    <EmbeddedResource Include="Resources\temperature_normal.png" />
+    <EmbeddedResource Include="Resources\temperature_warm.png" />
+    <EmbeddedResource Include="Resources\zone.png" />
+    <EmbeddedResource Include="Resources\zone_money.png" />
+    <EmbeddedResource Include="Resources\zone_resize.png" />
+    <EmbeddedResource Include="Resources\zone_resize_actual.png" />
+    <EmbeddedResource Include="Resources\zoom.png" />
+    <EmbeddedResource Include="Resources\zoom_actual.png" />
+    <EmbeddedResource Include="Resources\zoom_extend.png" />
+    <EmbeddedResource Include="Resources\zoom_fit.png" />
+    <EmbeddedResource Include="Resources\zoom_in.png" />
+    <EmbeddedResource Include="Resources\zoom_last.png" />
+    <EmbeddedResource Include="Resources\zoom_layer.png" />
+    <EmbeddedResource Include="Resources\zoom_out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\database_repeat.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toggle.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toggle_expand.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullet_toggle_plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bullet_toggle_minus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toggle_expand1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\plus1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toggle_expand2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\toggle1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_sq_plus_42357.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_plus_12300.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_minus_12165.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_minus_216340.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_add_22763.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_remove_101155.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_icon-plus-round_211877.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_minus_2163401.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_sq_minus_42355.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_add_101233.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_remove_101154.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_add_1012331.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\iconfinder_remove_1011541.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 и x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Cashier2.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>Данный проект ссылается на пакеты NuGet, отсутствующие на этом компьютере. Используйте восстановление пакетов NuGet, чтобы скачать их.  Дополнительную информацию см. по адресу: http://go.microsoft.com/fwlink/?LinkID=322105. Отсутствует следующий файл: {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.3.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.3.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.3.0\build\EntityFramework.targets')" />
+</Project>
